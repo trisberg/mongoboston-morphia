@@ -17,8 +17,8 @@ public class DbHelper {
 
 	public String getDump(Class<?> entityClass) {
 		final StringBuilder mongoData = new StringBuilder();
-		DBCollection books = datastore.getCollection(Book.class);
-		for (DBObject dbo : books.find()) {
+		DBCollection coll = datastore.getCollection(entityClass);
+		for (DBObject dbo : coll.find()) {
 			mongoData.append(dbo.toString());
 			mongoData.append(" ");
 		}
